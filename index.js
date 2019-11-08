@@ -19,17 +19,18 @@ server.get('/otherRoute', (req, res) => {
 
 server.post('/add', (req, res) => {
   //   console.log(req.body);
-  const body = '';
-  req.on('data', function(data) {
+  var body = '';
+  req.on('data', data => {
     body += data;
-    console.log(data);
+  });
+  req.on('end', () => {
+    let { msg } = JSON.parse(body);
+    res.end(JSON.stringify({ req: 'ok', msg: msg }));
   });
 
-  //   const { msg } = JSON.parse(body);
+  //   const data = JSON.parse(body);
 
   //   console.log(msg);
-  console.log(body);
-  //   res.end({ msg });
 });
 
 server.initServer((port, host) =>
