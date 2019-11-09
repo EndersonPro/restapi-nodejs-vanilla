@@ -1,6 +1,9 @@
 ## Prueba BackEnd NodeJS
 
 #### Como desplegar
+## Prueba BackEnd NodeJS
+
+#### Como desplegar
 
 1. Clonar el repositorio `git clone https://bitbucket.org/EndersonPro/prueba-backend-nodejs.git PruebaBackEnderson`
 
@@ -10,10 +13,10 @@
 
 4. Para el entorno de desarrollo es importante verificar la instalación de mongoDB para use el comando `mongo --version` si en su terminal no ve algo como esto: 
 
-   ```bash
-   mongo --version
-   >> MongoDB shell version v4.0.10
-   ```
+```bash
+mongo --version
+Output: MongoDB shell version v4.0.10
+```
 
    Deberá seguir la guía de instalación de mongoDB para su sistema operativo.[Guia de instalacion](https://docs.mongodb.com/manual/installation/)
 
@@ -37,21 +40,21 @@
 - Registrando un usuario nuevo con postman: ` http://127.0.0.1:9003/register` solicitud de tipo `POST` body de tipo raw `Json`  
 
   ```json
-  {
+{
   	"nombre":"Enderson Vizcaino",
   	"email":"enjaviga@gmail.com",
   	"password":"19981406",
   	"role":"ADMIN_ROLE"
-  }
+}
   ```
 
 - Iniciar sesión ` http://127.0.0.1:9002/login` solicitud de tipo `POST` body de tipo raw `Json` 
 
   ```json
-  {
+{
   	"email":"enjaviga2@gmail.com",
   	"password":"19981406"
-  }
+}
   ```
 
 - Obtener histórico de palabras ` http://127.0.0.1:9001/historial ` solicitud de tipo `GET` 
