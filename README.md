@@ -28,34 +28,35 @@ Output: MongoDB shell version v4.0.10
 
 - Dentro del directorio del proyecto correr el comando `node index --mode local` para levantar los servidores en local, se espera recibir por consola algo como esto: 
 
-  ```bash
-  $ node index --mode local
-  Servidor [PALINDROME] corriendo en 9000 y host 127.0.0.1
-  Servidor [HISTORIAL] corriendo en 9001 y host 127.0.0.1
-  Servidor [AUTH] corriendo en 9002 y host 127.0.0.1     
-  Servidor [REGISTER] corriendo en 9003 y host 127.0.0.1
-  Base de datos conectada
-  ```
+```bash
+  $ node index --mode local \n
+  Servidor [PALINDROME] corriendo en 9000 y host 127.0.0.1 \n
+  Servidor [HISTORIAL] corriendo en 9001 y host 127.0.0.1 \n
+  Servidor [AUTH] corriendo en 9002 y host 127.0.0.1     \n
+  Servidor [REGISTER] corriendo en 9003 y host 127.0.0.1 \n
+  Base de datos conectada\n
+```
 
 - Registrando un usuario nuevo con postman: ` http://127.0.0.1:9003/register` solicitud de tipo `POST` body de tipo raw `Json`  
+`
 
-  ```json
-{
+```json
+  {
   	"nombre":"Enderson Vizcaino",
   	"email":"enjaviga@gmail.com",
   	"password":"19981406",
-  	"role":"ADMIN_ROLE"
-}
-  ```
+    "role":"ADMIN_ROLE"
+  }
+```
 
-- Iniciar sesión ` http://127.0.0.1:9002/login` solicitud de tipo `POST` body de tipo raw `Json` 
+  Iniciar sesión ` http://127.0.0.1:9002/login` solicitud de tipo `POST` body de tipo raw `Json` 
 
-  ```json
-{
+```json
+  {
   	"email":"enjaviga2@gmail.com",
   	"password":"19981406"
-}
-  ```
+  }
+```
 
 - Obtener histórico de palabras ` http://127.0.0.1:9001/historial ` solicitud de tipo `GET` 
 
