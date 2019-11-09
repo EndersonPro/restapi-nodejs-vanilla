@@ -8,6 +8,7 @@ module.exports = class Server {
     this.routeGet = [];
     this.routePost = [];
     this.routeDelete = [];
+    this.routePut = [];
   }
 
   initServer(cb) {
@@ -35,6 +36,12 @@ module.exports = class Server {
           callback(req, res, reqUrl.path);
         }
       });
+
+      this.routePut.forEach(({ path, callback }) => {
+        if (reqUrl.path.match(path) && req.method === 'PUT') {
+          callback(req, res, reqUrl.path);
+        }
+      });
     });
 
     this.server.listen(this.port, cb(this.port, this.host));
@@ -54,5 +61,9 @@ module.exports = class Server {
 
   delete(path, callback) {
     this.routeDelete = [...this.routeDelete, { path, callback }];
+  }
+
+  put(path, callback) {
+    this.routePut = [...this.routePut, { path, callback }];
   }
 };

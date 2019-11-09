@@ -78,4 +78,13 @@ serverHistorial.delete(/\/historial\/.*/, async (req, res, path) => {
   }
 });
 
+serverHistorial.put(/\/historial\/.*/, async (req, res, path) => {
+  res.statusCode = 405;
+  res.end(
+    JSON.stringify({
+      error: 'Metodo no soportado'
+    })
+  );
+});
+
 module.exports = serverHistorial;

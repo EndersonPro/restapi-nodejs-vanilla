@@ -1,13 +1,13 @@
 const serverPalindrome = require('./palindrome/routesPalindrome');
 const serverHistorial = require('./historial/routesHistorial');
-const authServer = require('./iniciar-sesion/authRoute');
+const authServer = require('./auth/authRoute');
 const registerServer = require('./registro/registroRoutes');
 
 const mongoose = require('mongoose');
 
 try {
   mongoose
-    .connect('mongodb://localhost:27017/auth', {
+    .connect('mongodb://localhost:27017/pruebaback', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })

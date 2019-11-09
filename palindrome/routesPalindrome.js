@@ -7,8 +7,6 @@ serverPalindrome.post('/palindrome', (req, res) => {
     body += data;
   });
   req.on('end', () => {
-    // let { msg } = JSON.parse(body);
-    // res.end(JSON.stringify({ req: 'ok', msg: msg }));
     try {
       const { palabra } = JSON.parse(body);
       if (typeof palabra == 'string') {
