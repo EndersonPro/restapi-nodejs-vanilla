@@ -3,6 +3,7 @@ const Usuario = require('../models/Usuario.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+
 authServer.post('/login', (req, res) => {
   let body = '';
 
