@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "983a3e12-a632-4579-8199-9005e4494bf8",
-		"name": "PruebaNodeJS",
+		"_postman_id": "38bed23b-b361-4b47-a62c-0491805caba8",
+		"name": "PruebaNodeJS copy",
 		"description": "Coleccion para los test de endpoint para la prueba de backend nodejs junior",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -48,7 +48,8 @@
 					"script": {
 						"id": "fbf77318-c00b-4ec0-9df6-7549b6719648",
 						"exec": [
-							""
+							"var data = JSON.parse(responseBody);",
+							"pm.environment.set(\"token\", data.token);"
 						],
 						"type": "text/javascript"
 					}
