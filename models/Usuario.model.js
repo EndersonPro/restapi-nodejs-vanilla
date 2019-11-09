@@ -7,11 +7,14 @@ let rolesValidos = {
   message: '{VALUE}, no es un rol valido'
 };
 
-
 let usuarioSchema = new Schema({
   nombre: {
     type: String,
     required: [true, 'El nombre es necesario']
+  },
+  email: {
+    type: String,
+    required: [true, 'Correo es obligatorio']
   },
   password: {
     type: String,
