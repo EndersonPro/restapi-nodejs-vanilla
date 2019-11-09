@@ -18,13 +18,15 @@ mongo --version
 Output: MongoDB shell version v4.0.10
 ```
 
-   Deberá seguir la guía de instalación de mongoDB para su sistema operativo.[Guia de instalacion](https://docs.mongodb.com/manual/installation/)
+   Deberá seguir la guía de instalación de mongoDB para su sistema operativo. [Guia de instalacion](https://docs.mongodb.com/manual/installation/)
 
-   Luego de instalar mondo en su computador deberá ejecutar el comando `mongod` para levantar el servicio de mongo o `mongod --dbpath="C:<path/to/db>"` para especificar la ruta de la base de datos, para mayor información entre aquí [Más información](https://docs.mongodb.com/manual/reference/program/mongod/)
+   Luego de instalar mongo en su computador deberá ejecutar el comando `mongod` para levantar el servicio de mongo o `mongod --dbpath="C:<path/to/db>"` para especificar la ruta de la base de datos, para mayor información entre aquí [Más información](https://docs.mongodb.com/manual/reference/program/mongod/)
 
    Por defecto el puerto de conexión de mongoDB es `27017` pero usted puede cambiar esto en el `index.js`
 
 #### Corriendo servidor en local y probando endpoints con postman
+
+- Usar el comando `git checkout develop` para moverse a la rama de desarrollo.
 
 - Dentro del directorio del proyecto correr el comando `node index --mode local` para levantar los servidores en local, se espera recibir por consola algo como esto: 
 
