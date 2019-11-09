@@ -45,18 +45,20 @@ Output: MongoDB shell version v4.0.10
 ```json
   {
   	"nombre":"Enderson Vizcaino",
-  	"email":"enjaviga@gmail.com",
-  	"password":"19981406",
+  	"email":"endersonpro@gmail.com",
+  	"password":"123456",
     "role":"ADMIN_ROLE"
   }
 ```
+
+- Si no se especifica un role por defecto se coloca "USER_ROLE" y solo se pueden esos dos.
 
   Iniciar sesión ` http://127.0.0.1:9002/login` solicitud de tipo `POST` body de tipo raw `Json` 
 
 ```json
   {
-  	"email":"enjaviga2@gmail.com",
-  	"password":"19981406"
+  	"email":"endersonpro@gmail.com",
+  	"password":"123456"
   }
 ```
 

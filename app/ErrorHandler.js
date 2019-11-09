@@ -41,4 +41,19 @@ class MongoSaveError extends ErrorHandler {
   }
 }
 
-module.exports = { MongoSaveError, MethodNotAllowed };
+
+
+/**
+ *  Manejando el error de un usuario existente
+ *
+ * @class UserAlreadyExists
+ * @extends {ErrorHandler}
+ */
+class UserAlreadyExists extends ErrorHandler {
+  constructor() {
+    super();
+    this.data = { error: 'Usuario ya existe' };
+  }
+}
+
+module.exports = { MongoSaveError, MethodNotAllowed, UserAlreadyExists };

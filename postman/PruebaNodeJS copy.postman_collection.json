@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "38bed23b-b361-4b47-a62c-0491805caba8",
+		"name": "PruebaNodeJS copy",
+		"description": "Coleccion para los test de endpoint para la prueba de backend nodejs junior",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro de Usuarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\":\"Enderson Vizcaino\",\n\t\"email\":\"enjaviga@gmail.com\",\n\t\"password\":\"19981406\",\n\t\"role\":\"ADMIN_ROLE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_register_service}}/register",
+					"host": [
+						"{{url_register_service}}"
+					],
+					"path": [
+						"register"
+					]
+				},
+				"description": "Servicio para el registro de usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Inicio de Sesion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fbf77318-c00b-4ec0-9df6-7549b6719648",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"pm.environment.set(\"token\", data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"enjaviga2@gmail.com\",\n\t\"password\":\"19981406\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_auth_service}}/login",
+					"host": [
+						"{{url_auth_service}}"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "Servicio para iniciar Sesion"
+			},
+			"response": []
+		},
+		{
+			"name": "Palindrome",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"palabra\": \"anitalavalatina\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_palindromo_service}}/palindrome",
+					"host": [
+						"{{url_palindromo_service}}"
+					],
+					"path": [
+						"palindrome"
+					]
+				},
+				"description": "Servicio para saber si una palabra es palindrome"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener historico de palabras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_historial_service}}/historial",
+					"host": [
+						"{{url_historial_service}}"
+					],
+					"path": [
+						"historial"
+					]
+				},
+				"description": "Todas las palabras palindromes y no palindromes"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una palabra del historico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url_historial_service}}/historial/5dc655a2015bfb33a0cedfd2",
+					"host": [
+						"{{url_historial_service}}"
+					],
+					"path": [
+						"historial",
+						"5dc655a2015bfb33a0cedfd2"
+					]
+				},
+				"description": "Servicio que permite solo a usuarios administradores eliminar una palabra del historico"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una palabra del historico",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url_historial_service}}/historial/5dc64389ad017b3ae05acbd4",
+					"host": [
+						"{{url_historial_service}}"
+					],
+					"path": [
+						"historial",
+						"5dc64389ad017b3ae05acbd4"
+					]
+				},
+				"description": "Servicio que se encarga de avisar que este metodo no esta soportado"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
