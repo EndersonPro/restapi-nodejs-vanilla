@@ -1,3 +1,9 @@
+/**
+ *  Clase manejadora de los eventos de errores
+ *
+ * @class ErrorHandler
+ * @extends {Error}
+ */
 class ErrorHandler extends Error {
   constructor(message) {
     super(message);
@@ -6,11 +12,33 @@ class ErrorHandler extends Error {
   }
 }
 
-class MongoSaveError extends ErrorHandler {
-  constructor(error) {
-    super('Ocurrio un error al guardar en la base de datos');
-    this.data = { error: error };
+/**
+ * Manejador de errores personalizados para los errores de metodos no soportados
+ *
+ * @class MethodNotAllowed
+ * @extends {ErrorHandler}
+ */
+class MethodNotAllowed extends ErrorHandler {
+  constructor() {
+    super();
+    this.data = { error: 'Metodo no permitido' };
   }
 }
 
-module.exports = { MongoSaveError };
+
+
+
+/**
+ * Error al guardar en mongoDB
+ *
+ * @class MongoSaveError
+ * @extends {ErrorHandler}
+ */
+class MongoSaveError extends ErrorHandler {
+  constructor() {
+    super();
+    this.data = { error: 'Ocurrio un error al guardar en la base de datos' };
+  }
+}
+
+module.exports = { MongoSaveError, MethodNotAllowed };

@@ -1,6 +1,7 @@
 const serverHistorial = require('./historialServer');
 const Palabra = require('../models/Palabra.model');
 const jwt = require('jsonwebtoken');
+const { MethodNotAllowed } = require('../app/ErrorHandler');
 
 serverHistorial.get('/historial', (req, res) => {
   Palabra.find({ active: true })
@@ -79,12 +80,16 @@ serverHistorial.delete(/\/historial\/.*/, async (req, res, path) => {
 });
 
 serverHistorial.put(/\/historial\/.*/, async (req, res, path) => {
-  res.statusCode = 405;
-  res.end(
-    JSON.stringify({
-      error: 'Metodo no soportado'
-    })
-  );
+  try {
+    throw new MethodNotAllowed();
+  } catch (error) {
+    res.statusCode = 405;
+    res.end(
+      JSON.stringify({
+        error: error.data.error
+      })
+    );
+  }
 });
 
 module.exports = serverHistorial;

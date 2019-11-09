@@ -1,6 +1,7 @@
 const registroServer = require('./registroServer');
 const Usuario = require('../models/Usuario.model');
 const bcrypt = require('bcryptjs');
+const { MongoSaveError } = require('../app/ErrorHandler');
 
 registroServer.post('/register', (req, res) => {
   let body = '';
@@ -17,12 +18,13 @@ registroServer.post('/register', (req, res) => {
       password: password != null ? bcrypt.hashSync(password, 10) : null,
       role: role
     });
+
     usuario.save((err, usuarioDB) => {
       if (err) {
         res.statusCode = 400;
         return res.end(
           JSON.stringify({
-            err: err
+            err: new MongoSaveError()
           })
         );
       }
