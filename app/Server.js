@@ -13,7 +13,7 @@ module.exports = class Server {
     this.server = http.createServer((req, res) => {
       this.res = res;
       this.req = req;
-      this.res.statusCode = 200;
+      // this.res.statusCode = 200;
       this.res.setHeader('Content-Type', 'application/json');
       let reqUrl = url.parse(req.url, true);
 

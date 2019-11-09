@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon index"
+    "start": "nodemon index"
   },
   "author": "Enderson Vizcaino",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.19.4"
+  },
+  "dependencies": {
+    "mongoose": "^5.7.9"
   }
 }
