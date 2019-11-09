@@ -1,4 +1,5 @@
 const serverPalindrome = require('./serverPalindrome');
+const Palabra = require('../models/Palabra.model');
 
 serverPalindrome.post('/palindrome', (req, res) => {
   var body = '';
@@ -15,17 +16,32 @@ serverPalindrome.post('/palindrome', (req, res) => {
           .split('')
           .reverse()
           .join('');
-        let palindromo = palabra == reverse ? true : false;
+        let isPalindromo = palabra == reverse ? true : false;
+        let palabraDb = new Palabra({
+          palabra,
+          isPalindromo
+        });
+
+        palabraDb.save(err => {
+          return res.end(
+            JSON.stringify({
+              data: [],
+              error: err
+            })
+          );
+        });
+
         res.end(
           JSON.stringify({
-            palabra: palabra,
-            palindromo: palindromo
+            data: palabra,
+            isPalindromo
           })
         );
       } else {
         res.statusCode = 503;
         res.end(
           JSON.stringify({
+            data: [],
             error:
               'Se esperaba un string y se recibio un tipo ' + typeof palabra
           })
@@ -33,7 +49,7 @@ serverPalindrome.post('/palindrome', (req, res) => {
       }
     } catch (err) {
       console.log(err);
-      res.end(JSON.stringify({ err: err }));
+      res.end(JSON.stringify({ data: [], err: err }));
     }
   });
 });
