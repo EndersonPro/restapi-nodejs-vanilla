@@ -9,9 +9,11 @@
 
 2. cd `path/to/project/PruebaBackEnderson`
 
-3. Instalar las dependencias `npm install` o `yarn`
+3. Usar el comando `git checkout develop` para moverse a la rama de desarrollo
 
-4. Para el entorno de desarrollo es importante verificar la instalación de mongoDB para use el comando `mongo --version` si en su terminal no ve algo como esto: 
+4. Instalar las dependencias `npm install` o `yarn`
+
+5. Para el entorno de desarrollo es importante verificar la instalación de mongoDB para use el comando `mongo --version` si en su terminal no ve algo como esto: 
 
 ```bash
 mongo --version
@@ -25,8 +27,6 @@ Output: MongoDB shell version v4.0.10
    Por defecto el puerto de conexión de mongoDB es `27017` pero usted puede cambiar esto en el `index.js`
 
 #### Corriendo servidor en local y probando endpoints con postman
-
-- Usar el comando `git checkout develop` para moverse a la rama de desarrollo.
 
 - Dentro del directorio del proyecto correr el comando `node index --mode local` para levantar los servidores en local, se espera recibir por consola algo como esto: 
 
